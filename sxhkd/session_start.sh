@@ -2,7 +2,7 @@
 nitrogen --restore
 if ! [ -d /home/arya/Documents/Org ];
 then
-gocryptfs -extpass 'kdialog --password Files' ~/.drive/Personal ~/Documents 
+gocryptfs -extpass 'zenity --password Files' ~/.drive/Personal ~/Documents 
 fi &&
 
     (
