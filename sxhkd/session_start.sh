@@ -1,6 +1,10 @@
 #!/bin/sh
 nitrogen --restore
-gocryptfs -extpass 'kdialog --password Files' ~/.drive/Personal ~/Documents &&
+if ! [ -d /home/arya/Documents/Org ];
+then
+gocryptfs -extpass 'kdialog --password Files' ~/.drive/Personal ~/Documents 
+fi &&
+
     (
     emacs --config tracking & 
     st -e sh ~/.local/scripts/sync.sh &
@@ -10,4 +14,3 @@ gocryptfs -extpass 'kdialog --password Files' ~/.drive/Personal ~/Documents &&
         (
             kdialog --msgbox "Hello Guest";
         )
-    
