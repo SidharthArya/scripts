@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TEMPARATURES="$(cat /proc/acpi/ibm/thermal |  cut -c 15-)"
+TEMPARATURES="$( sensors | grep °C | sed 's/.*://g' | awk '{print $1}'| tr -d C°+ | sed 's/\..*//g')"
 MAX=0
 for i in $TEMPARATURES;
 do
