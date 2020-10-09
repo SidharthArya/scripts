@@ -9,7 +9,7 @@ fi &&
     (
     emacs --config tracking & 
     st -e sh ~/.local/scripts/sync.sh &
-    gwenview ~/Documents/Org/Tracking/images &
+    sxiv ~/Documents/Org/Tracking/images &
     python ~/.local/scripts/electricitybill.py &
     ) ||
         (
