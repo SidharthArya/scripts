@@ -11,6 +11,6 @@ fi
 while true
 do
     if read line <$pipe; then
-	notify-send "Your Battery is low"
+	notify-send -u critical "Your Battery is low"
     fi
 done
