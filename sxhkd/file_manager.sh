@@ -5,4 +5,4 @@ export NNN_COLORS="2136"                           # use a different color for e
 export NNN_TRASH=1                                 # trash (needs trash-cli) instead of delete
 export EDITOR=nvim
 export NNN_PLUG='m:mount;p:preview-tui'
-nnn
+nnn -x
