@@ -1,6 +1,7 @@
 #!/bin/sh
 nitrogen --restore
 teams &
+dunst &
 if ! [ -d /home/arya/Documents/Org ];
 then
 gocryptfs -extpass 'zenity --password Files' ~/.drive/Personal ~/Documents 
