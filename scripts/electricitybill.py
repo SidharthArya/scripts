@@ -5,7 +5,7 @@ today = date.today()
 date = today.strftime("%d") 
 month = today.strftime("%Y-%m")
 
-if int(date) < 23:
+if int(date) < 25:
   sys.exit()
 
 filename = "/home/arya/Documents/Org/Bills/Electricity/" + month + ".pdf"
