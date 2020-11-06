@@ -1,9 +1,9 @@
 #!/bin/sh
-TEMPARATURES="$( sensors | grep °C | sed 's/.*://g' | awk '{print $1}'| tr -d C°+ | sed 's/\..*//g')"
+TEMPARATURES="$( sensors | grep °C | grep -v temp11 | sed 's/.*://g' | awk '{print $1}'| tr -d C°+ | sed 's/\..*//g' | tr -d '(A..z')"
 MAX=0
 for i in $TEMPARATURES;
 do
-	MAX=$(( $MAX < $i ? $i : $MAX ))
+	   MAX="$(( $MAX < $i ? $i : $MAX ))"
 done
 CURRENT_LEVEL="$(cat /proc/acpi/ibm/fan | tail -n 4 | head -n 1 | awk '{print $2}')"
 if (( $MAX > 50 ));
