@@ -1,7 +1,6 @@
 #!/bin/sh
 nitrogen --restore
 picom &
-brave &
 xsetroot -cursor_name left_ptr
 teams &
 dunst &
