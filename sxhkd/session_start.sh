@@ -1,5 +1,5 @@
 #!/bin/sh
-nitrogen --restore
+#nitrogen --restore
 picom &
 xsetroot -cursor_name left_ptr
 teams &
