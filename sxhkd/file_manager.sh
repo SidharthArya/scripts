@@ -6,4 +6,4 @@ export NNN_TRASH=1                                 # trash (needs trash-cli) ins
 export EDITOR=nvim
 export NNN_PLUG='m:mount;p:preview-tabbed;d:dragdrop'
 export NNN_FIFO=/tmp/nnn.fifo
-nnn -x
+#nnn -x
