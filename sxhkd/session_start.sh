@@ -1,14 +1,10 @@
 #!/bin/sh
 nitrogen --restore
-picom &
+if ! pgrep picom; then picom; fi &
 xsetroot -cursor_name left_ptr
 teams &
-dunst &
-if ! [ -d /home/arya/Documents/Org ];
-then
-gocryptfs -extpass 'zenity --password Files' ~/.drive/Personal ~/Documents 
-fi &&
-
+if ! pgrep dunst; then dunst; fi &
+gocryptfs -extpass 'zenity --password Files' ~/.drive/Personal ~/Documents  &&
     (
     emacs --config tracking & 
     emacs --config org &
@@ -18,5 +14,4 @@ fi &&
     ) ||
         (
             kdialog --msgbox "Hello Guest";
-	    emacs --config none --daemon &
     )

@@ -1,5 +1,10 @@
 #!/bin/sh
 arg1=$1
+if pgrep bspwm;
+then
+    sh ~/.config/sxhkd/scripts/scratchpad.sh class "$arg1"
+    exit 0
+fi
 if  [[ -z "$arg1" ]]
 then
 ID=$(xdo id)
