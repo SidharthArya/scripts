@@ -22,4 +22,4 @@ case "$class" in
 esac
 
 
-notify-send "$wid $class $instance $consequences "
+#notify-send "$wid $class $instance $consequences "
