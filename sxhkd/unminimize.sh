@@ -10,8 +10,19 @@ case "$1" in
 	done | dmenu | awk '{print $1}' | xargs -I{} bspc node {} -g hidden -f
 	;;
 	"last")
-		bspc node "$(bspc query -N -n .hidden | head -n 1)" -g hidden -f 
-		;;
+            ID="$(tail -n1 /tmp/bspwm_minimize_stack)"
+	    FILE="$(head -n -1 /tmp/bspwm_minimize_stack)"
+            echo "$FILE" > /tmp/bspwm_minimize_stack
+            bspc node $ID -g hidden=off -f
+            	    ;;
+	"cycle")
+            ID="$(tail -n1 /tmp/bspwm_minimize_stack)"
+	    FILE="$(head -n -1 /tmp/bspwm_minimize_stack)"
+            CUR="$(bspc query -N -n focused)"
+            bspc node -g hidden=on
+            echo -e "$CUR\n$FILE" > /tmp/bspwm_minimize_stack
+            bspc node $ID -g hidden=off -f
+            	    ;;
 esac
 
 

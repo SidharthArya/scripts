@@ -17,4 +17,4 @@ case "$arg1" in
 esac
 
 echo $QUERY
-surf "$NAME"
+surf "$NAME" 
