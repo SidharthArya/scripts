@@ -1,6 +1,6 @@
 #!/bin/bash
 
-chosen=$(cut -d ';' -f1 ~/.local/scripts/assets/emoji | rofi -dmenu | sed "s/ .*//")
+chosen=$(cut -d ';' -f1 ~/.local/scripts/assets/emoji | rofi -dmenu -theme dmenu | sed "s/ .*//")
 # Exit if none chosen.
 [ -z "$chosen" ] && exit
 
