@@ -1,9 +1,4 @@
 #!/bin/sh
-nitrogen --restore
-if ! pgrep picom; then picom; fi &
-xsetroot -cursor_name left_ptr
-teams &
-if ! pgrep dunst; then dunst; fi &
 gocryptfs -extpass 'zenity --password Files' ~/.drive/Personal ~/Documents  &&
     (
     emacs --config tracking & 
