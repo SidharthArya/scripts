@@ -1,5 +1,8 @@
-#!/bin/sh
-TEMPARATURES="$( sensors | grep °C | grep -v temp11 | sed 's/.*://g' | awk '{print $1}'| tr -d C°+ | sed 's/\..*//g' | tr -d '(A..z')"
+#!/usr/bin/env sh
+mkfifo /tmp/fan_status
+while true;
+do
+TEMPARATURES="$(sensors | grep °C | grep -v temp11 | sed 's/.*://g' | awk '{print $1}'| tr -d C°+ | sed 's/\..*//g' | tr -d '(A..z')"
 MAX=0
 for i in $TEMPARATURES;
 do
@@ -26,3 +29,5 @@ else
 	cat /proc/acpi/ibm/fan >> /tmp/fan_status
 fi
 echo $MAX >> /tmp/fan_status
+sleep 15
+done
