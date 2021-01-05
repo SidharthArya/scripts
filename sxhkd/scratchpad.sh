@@ -22,23 +22,21 @@ esac
 
 echo $id
 echo $arg3
+ID=$id
 
-if [ "$id" == "" ]
- then
-		 exec $arg3;
-else
-    NODE="$(echo $id| sed 's/.x.......1//g')"
-    if [ "$(cat /tmp/wm)" == "bspwm" ];
-    then
+if [ "$ID" == "" ]
+then
+    exec $arg3;
+    exit 0
+fi
+for id in $ID;
+do
+        NODE="$(echo $id| sed 's/.x.......1//g')"
         if [ "$(bspc query -N -d focused | grep $NODE | wc -l)" == "1" ];
         then
             bspc node $NODE -g hidden -d focused  -f
         else
             bspc node $NODE -g hidden=off -d focused  -f
         fi
-    else
-        xdo hide $id;
-        xdo show $id;
-    fi
-    
-fi
+        
+done
