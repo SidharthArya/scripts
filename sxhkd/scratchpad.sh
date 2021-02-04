@@ -26,7 +26,7 @@ ID=$id
 
 if [ "$ID" == "" ]
 then
-    nohup $arg3 &
+    exec $arg3
     exit 0
 fi
 for id in $ID;
