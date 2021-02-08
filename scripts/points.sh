@@ -24,3 +24,4 @@ case $1 in
         done
         ;;
 esac
+echo -e "1\n" > /tmp/bspwm_panel_system_points 
