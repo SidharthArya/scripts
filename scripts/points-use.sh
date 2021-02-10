@@ -7,6 +7,10 @@ DATE="$(date +'%Y%m%d')"
 DATE_LEDGER="$(date --date=$DATE +'%Y/%m/%d')"
 
 DO_POINTS="$(cat $POINTS_STORE | rofi -dmenu)"
+if [ -z $DO_POINTS ];
+then
+    exit 0
+fi
 DO=${DO_POINTS%%,*}
 POINTS=${DO_POINTS##*,}
 printf "\n\n$DATE_LEDGER $DO\n\tAssets:Points\t-$POINTS\n\tExpenses" >> $LEDGER_FILE
