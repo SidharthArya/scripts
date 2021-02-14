@@ -7,8 +7,8 @@ case $1 in
         POINTS=$(cat $FILE | paste -sd + | bc)
         DATE_LEDGER="$(date --date=$DATE +'%Y/%m/%d')"
         rm $FILE
-        printf "\n\n$DATE_LEDGER Points Earned\n\tAssets:Points\t$POINTS\n\tIncome:Points" >> $LEDGER_FILE
-        echo $POINTS
+        printf "\n\n$DATE_LEDGER Points Earned\n\tAssets:Points\t%d\n\tIncome:Points\n" $POINTS >> $LEDGER_FILE
+        printf "%d\n" $POINTS
         ;;
     "all")
         for i in $(ls /home/arya/.cache/org-points-*.points);
