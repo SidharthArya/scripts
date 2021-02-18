@@ -7,7 +7,7 @@ case $1 in
         POINTS=$(cat $FILE | paste -sd + | bc)
         DATE_LEDGER="$(date --date=$DATE +'%Y/%m/%d')"
         rm $FILE
-        printf "\n\n$DATE_LEDGER Points Earned\n\tAssets:Points\t%d\n\tIncome:Points\n" $POINTS >> $LEDGER_FILE
+        printf "\n\n$DATE_LEDGER Points Earned\n\tAssets:Points\t%d\n\tIncome:Points\n" $POINTS 2>/dev/null >> $LEDGER_FILE
         printf "%d\n" $POINTS 2>/dev/null
         ;;
     "all")
