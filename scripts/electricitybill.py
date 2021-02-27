@@ -23,7 +23,7 @@ with open('/home/arya/Documents/Org/Bills/variables') as f:
   data = json.load(f)
 
 try:
-  with webdriver.Firefox() as driver:
+  with webdriver.Chrome() as driver:
     wait = WebDriverWait(driver, 10)
     driver.get("https://www.bsesdelhi.com/web/brpl/view-duplicate-bill")
     driver.find_element_by_xpath("//input[@maxlength='9']").click()
