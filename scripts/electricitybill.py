@@ -5,8 +5,9 @@ today = date.today()
 date = today.strftime("%d") 
 month = today.strftime("%Y-%m")
 
-if int(date) < 25:
-  sys.exit()
+#print(sys.argv[1])
+#if int(date) < 28:
+#  sys.exit()
 
 filename = "/home/arya/Documents/Org/Bills/Electricity/" + month + ".pdf"
 if os.path.exists(filename):

@@ -6,7 +6,7 @@ LEDGER_FILE="/home/arya/Documents/Org/Ledger/points.ledger"
 DATE="$(date +'%m/%d/%Y')"
 DATE_LEDGER="$(date +'%Y/%m/%d')"
 
-DO_POINTS="$(cat $POINTS_STORE | rofi -dmenu)"
+DO_POINTS="$(cat $POINTS_STORE | rofi -dmenu -theme dmenu -p 'Use Points: ')"
 
 if [ -z "$DO_POINTS" ];
 then
