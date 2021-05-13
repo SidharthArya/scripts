@@ -23,8 +23,8 @@ src = ""
 with open('/home/arya/Documents/Org/Bills/variables') as f:
   data = json.load(f)
 
-try:
-  with webdriver.Chrome() as driver:
+#try:
+with webdriver.Firefox() as driver:
     wait = WebDriverWait(driver, 10)
     driver.get("https://www.bsesdelhi.com/web/brpl/view-duplicate-bill")
     driver.find_element_by_xpath("//input[@maxlength='9']").click()
@@ -52,6 +52,6 @@ try:
   import subprocess
   subprocess.run(["zathura", filename]) 
 
-except Exception as e:
-  import subprocess
-  subprocess.run(["notify-send", "Electricity Bill", str(e)])
+#except Exception as e:
+#  import subprocess
+#  subprocess.run(["notify-send", "Electricity Bill", str(e)])
