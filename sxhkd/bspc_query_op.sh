@@ -18,4 +18,18 @@ case $arg1 in
             bspc node $i $arg3
         done
         ;;
+    "receptacle-insert-all-marked")
+        RECEPTACLE="$(bspc query -N -n '.leaf.!window' | tail -n 1)"
+        if [ -z $RECEPTACLE ];
+        then
+            exit 0
+        fi
+        NODE="$(bspc query -N -n)"
+        for i in $(bspc query -N -n .marked);
+        do
+            bspc node $i -n $RECEPTACLE  -f && 
+                RECEPTACLE="$(bspc query -N -n)" || echo Hello
+        done
+        bspc node $NODE -f
+        ;;
 esac
