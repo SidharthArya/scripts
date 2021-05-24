@@ -25,11 +25,12 @@ case $arg1 in
             exit 0
         fi
         NODE="$(bspc query -N -n)"
-        for i in $(bspc query -N -n .marked);
+        MARKED=$(bspc query -N -n .marked || echo $NODE)
+        for i in $MARKED
         do
             bspc node $i -n $RECEPTACLE  -f && 
                 RECEPTACLE="$(bspc query -N -n)" || echo Hello
-        done
+        done 
         bspc node $NODE -f
         ;;
 esac

@@ -2,12 +2,12 @@ from datetime import date
 import sys
 import os
 today = date.today()
-date = today.strftime("%d") 
+date = today.strftime("%d")
 month = today.strftime("%Y-%m")
-
+import ssl
 #print(sys.argv[1])
-#if int(date) < 28:
-#  sys.exit()
+if int(date) < 26:
+  sys.exit()
 
 filename = "/home/arya/Documents/Org/Bills/Electricity/" + month + ".pdf"
 if os.path.exists(filename):
@@ -24,7 +24,7 @@ with open('/home/arya/Documents/Org/Bills/variables') as f:
   data = json.load(f)
 
 #try:
-with webdriver.Firefox() as driver:
+with webdriver.Chrome() as driver:
     wait = WebDriverWait(driver, 10)
     driver.get("https://www.bsesdelhi.com/web/brpl/view-duplicate-bill")
     driver.find_element_by_xpath("//input[@maxlength='9']").click()
@@ -41,16 +41,15 @@ with webdriver.Firefox() as driver:
     driver.find_element_by_xpath("//button[@type='submit']").click()
     time.sleep(20)
     src = driver.find_element_by_xpath("//iframe").get_attribute("src")
-  import ssl
-  ssl._create_default_https_context = ssl._create_unverified_context
-  print(src)
-  import requests
-  response = requests.get(src, verify=False)
-  f = open(filename, "bw")
-  f.write(response.content)
-  f.close()
-  import subprocess
-  subprocess.run(["zathura", filename]) 
+    ssl._create_default_https_context = ssl._create_unverified_context
+    print(src)
+    import requests
+    response = requests.get(src, verify=False)
+    f = open(filename, "bw")
+    f.write(response.content)
+    f.close()
+    import subprocess
+    subprocess.run(["zathura", filename]) 
 
 #except Exception as e:
 #  import subprocess

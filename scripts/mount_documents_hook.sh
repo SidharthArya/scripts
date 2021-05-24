@@ -6,6 +6,7 @@ if ! pgrep -f crypto.py;then python ~/.files/Bots/Crypto-tracking-bot/crypto.py;
 sudo sh ~/.local/scripts/zfs_snapshot.sh &
 
 emacs --script ~/.emacs.d/scripts/diet &
+emacs --script ~/.emacs.d/scripts/exercises &
 
 st -e sh ~/.local/scripts/sync.sh &
 sxiv ~/Documents/Org/Tracking/images &
