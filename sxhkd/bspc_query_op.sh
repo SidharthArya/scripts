@@ -6,14 +6,15 @@ arg2=$2
 arg3="${all_args[@]:2}"
 case $arg1 in
     operate)
-        NODES=$(bspc query -N -n $arg2)
-        echo $NODES
+        NODES="$(bspc query -N -n $arg2)"
         if [ -z "$NODES" ];
         then
             exit 2
         fi
-        for i in "$NODES";
+        echo "$NODES"
+        for i in $NODES;
         do
+            echo $i
             echo bspc node $i $arg3
             bspc node $i $arg3
         done
