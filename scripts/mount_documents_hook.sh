@@ -7,6 +7,7 @@ sudo sh ~/.local/scripts/zfs_snapshot.sh &
 
 emacs --script ~/.emacs.d/scripts/diet &
 emacs --script ~/.emacs.d/scripts/exercises &
+emacs --script ~/.emacs.d/scripts/selfcare &
 
 st -e sh ~/.local/scripts/sync.sh &
 sxiv ~/Documents/Org/Tracking/images &
