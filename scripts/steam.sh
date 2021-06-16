@@ -4,8 +4,8 @@ docker run \
        --privileged \
        --name steam \
        -e DISPLAY=$DISPLAY \
-       -m 3G \
-       --cpus=1 \
+       -m 4G \
+       --cpus=2 \
        -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native \
        -v /tmp/.X11-unix:/tmp/.X11-unix \
        -v /dev/shm:/dev/shm \
