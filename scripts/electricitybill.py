@@ -7,7 +7,8 @@ month = today.strftime("%Y-%m")
 import ssl
 #print(sys.argv[1])
 if int(date) < 26:
-  sys.exit()
+    if sys.argv[1] != "-i":
+         sys.exit()
 
 filename = "/home/arya/Documents/Org/Bills/Electricity/" + month + ".pdf"
 if os.path.exists(filename):
@@ -24,7 +25,9 @@ with open('/home/arya/Documents/Org/Bills/variables') as f:
   data = json.load(f)
 
 #try:
-with webdriver.Chrome() as driver:
+options = webdriver.ChromeOptions()
+options.binary_location = os.environ["CHROME_EXECUTABLE"]
+with webdriver.Chrome(options=options) as driver:
     wait = WebDriverWait(driver, 10)
     driver.get("https://www.bsesdelhi.com/web/brpl/view-duplicate-bill")
     driver.find_element_by_xpath("//input[@maxlength='9']").click()

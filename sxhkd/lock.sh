@@ -1,4 +1,5 @@
 #!/bin/sh
+pgrep lock.sh && exit 1
 gpgconf --kill gpg-agent
-XDG_SEAT_PATH="/org/freedesktop/DisplayManager/Seat0" DISPLAY=:0 slock
+dm-tool lock
 sleep 3
