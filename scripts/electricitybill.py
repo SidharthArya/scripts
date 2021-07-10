@@ -7,7 +7,7 @@ month = today.strftime("%Y-%m")
 import ssl
 #print(sys.argv[1])
 if int(date) < 26:
-    if sys.argv[1] != "-i":
+    if len(sys.argv) > 1 and sys.argv[1] != "-i":
          sys.exit()
 
 filename = "/home/arya/Documents/Org/Bills/Electricity/" + month + ".pdf"
