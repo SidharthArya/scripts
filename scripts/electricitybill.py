@@ -26,7 +26,10 @@ with open('/home/arya/Documents/Org/Bills/variables') as f:
 
 #try:
 options = webdriver.ChromeOptions()
-options.binary_location = os.environ["CHROME_EXECUTABLE"]
+try:
+    options.binary_location = os.environ["CHROME_EXECUTABLE"] 
+except:
+    options.binary_location = "/usr/bin/google-chrome-stable"
 with webdriver.Chrome(options=options) as driver:
     wait = WebDriverWait(driver, 10)
     driver.get("https://www.bsesdelhi.com/web/brpl/view-duplicate-bill")

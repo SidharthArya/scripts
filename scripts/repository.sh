@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 CURRENT_DIRECTORY="$(pwd)"
 export IFS=$'\n'
 for i in $(cat ~/Documents/Sync/repository);
