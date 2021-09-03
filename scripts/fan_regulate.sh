@@ -11,13 +11,13 @@ do
 # done
 MAX=$(acpi -t  | awk '{print $4}' | sed 's/\..*//g')
 CURRENT_LEVEL="$(cat /proc/acpi/ibm/fan | tail -n 4 | head -n 1 | awk '{print $2}')"
-if (( $MAX > 50 ));
+if (( $MAX > 65 ));
 then 
 	LEVEL="disengaged"
-elif (( $MAX > 45 ));
+elif (( $MAX > 55 ));
 then
 	LEVEL="7"
-elif (( $MAX > 40 ));
+elif (( $MAX > 50 ));
 then
 	LEVEL="4"
 else
