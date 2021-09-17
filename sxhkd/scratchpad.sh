@@ -29,6 +29,7 @@ then
     exec $arg3
     exit 0
 fi
+CWD=$(bspc query -D -d last)
 for id in $ID;
 do
         NODE="$(echo $id| sed 's/.x.......1//g')"
@@ -40,4 +41,7 @@ do
         fi
         
 done
+CWD2=$(bspc query -D -d focused)
+bspc desktop $CWD -f
+bspc desktop $CWD2 -f
 exit 1
