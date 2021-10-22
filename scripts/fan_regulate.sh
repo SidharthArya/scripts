@@ -14,7 +14,7 @@ CURRENT_LEVEL="$(cat /proc/acpi/ibm/fan | tail -n 4 | head -n 1 | awk '{print $2
 if (( $MAX > 65 ));
 then 
 	LEVEL="disengaged"
-	cpupower frequency-set -u 3GHz
+	cpupower frequency-set -u 2GHz
 elif (( $MAX > 55 ));
 then
 	LEVEL="7"
@@ -23,7 +23,7 @@ then
 	LEVEL="4"
 else
 	LEVEL="0"
-	cpupower frequency-set -u 3GHz
+	cpupower frequency-set -u 2GHz
 fi
 if [[ $LEVEL != $CURRENT_LEVEL ]]
 then
