@@ -1,21 +1,17 @@
 #!/usr/bin/env bash
 
-FILES=""
 while inotifywait -e close_write *.org --format '%w'| while read FILE
     do
-        FILES="$FILES\n$FILE"
-    done
-do
-    git stash push -m "tbc"
-    git pull
-    git stash pop tbc
-    for FILE in $FILES;
-    do
-        
+        git add .
+        git stash push -m "tbc"
+        git pull
+        STASH="$(git stash list | grep tbc | head -n 1 | awk '{print $1}' | rev | cut -c 2- | rev)"
+        git stash pop $STASH
+        notify-send "Git" "Committed: $FILE changed"
 	git add $FILE
 	git commit -m "Auto: $FILE changed"
+        git push
     done
-    git push
-    FILES=""
+do
+    echo "Committed to Github";
 done
-
