@@ -4,12 +4,13 @@ arg1=$1
 arg2=$2
 arg3="${all_args[@]:2}"
 GDMSESSION="bspwm"
+echo $arg2
 case $arg1 in
 		"title")
 				id=$(xdo id -n $arg2)
 				;;
 		"class")
-				id=$(xdo id -N $arg2)
+				id=$(xdo id -N "$arg2")
 				;;
 
 		"wclass")
